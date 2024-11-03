@@ -17,12 +17,14 @@ body {
     margin: 0;
     padding: 0;
     background-image: url(ac5b9674-5d24-4479-a0d0-776d4bdf5ad7.gif);
-     background-size: cover; /* Cover the entire screen */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    min-height: 100vh; /* Make sure body takes up the full height */
     display: flex;
-    flex-direction: column; /* Stack header and content vertically */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .container {
