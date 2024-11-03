@@ -1,0 +1,146 @@
+:root {
+    --primary: #fff;
+    --bg-color: rgb(5, 53, 61);
+    --bg-envelope-color: #f5edd1;
+    --envelope-tab: #ecdeb8;
+    --envelope-cover: #e6cfa7;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8, 231);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(ac5b9674-5d24-4479-a0d0-776d4bdf5ad7.gif);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.envelope-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    top: 0;
+    transform-origin: top;
+    transition: transform 0.6s ease; /* Animation effect */
+}
+
+.envelope.opened::before {
+    transform: rotateX(180deg); /* Rotate to open the top flap */
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    border-top: 130px solid transparent;
+    border-left: 150px solid var(--envelope-cover);
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 170px solid var(--envelope-cover);
+    bottom: 0;
+}
+
+.letter {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 180px;
+    background: var(--primary);
+    padding: 20px;
+    color: var(--txt-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    transition: transform 0.6s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.envelope.opened .letter {
+    transform: translateY(-250px);
+    opacity: 1;
+    z-index: 3;
+}
+
+.letter .text p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: var(--heart-color);
+    transform: translate(-50%, -50%) rotate(45deg);
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for dimension */
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--heart-color);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px; /* Move up for a smoother, more natural curve */
+    left: 0;
+}
+
+.heart::after {
+    left: -25px; /* Move left to align perfectly with the main heart */
+    top: 0;
+}
+
+audio {
+    border-radius: 10%;
+}
+
+header {
+    background-color: #fff; /* Background color of the header */
+    padding: 20px; /* Spacing inside the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    text-align: center; /* Center the header text */
+}
